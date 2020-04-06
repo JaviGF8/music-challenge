@@ -1,0 +1,123 @@
+@import '../../styles/constants.scss';
+
+.album-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $screen-xl;
+
+  > * {
+    flex: 0 20%;
+    width: 20%;
+
+    .album-image {
+      margin-bottom: $size-lg;
+    }
+  }
+  > *:first-child {
+    min-height: 400px;
+  }
+  > *:nth-child(-n + 3):not(:first-child) {
+    height: 40vh;
+    min-height: 350px;
+  }
+  > *:nth-child(-n + 6):not(:nth-child(-n + 3)) {
+    height: 30vh;
+    min-height: 300px;
+  }
+  > *:nth-child(-n + 10):not(:nth-child(-n + 6)) {
+    min-height: 250px;
+  }
+  > *:nth-child(-n + 20):not(:nth-child(-n + 10)) {
+    min-height: 200px;
+  }
+  > *:nth-child(-n + 50):not(:nth-child(-n + 20)) {
+    min-height: 150px;
+    font-size: $font-sm;
+  }
+  > *:nth-child(-n + 100):not(:nth-child(-n + 50)) {
+    max-height: 100px;
+    font-size: $font-sm;
+
+    .album-container {
+      .album-info {
+        flex-direction: row;
+        justify-content: flex-start;
+
+        .album-image {
+          margin-bottom: 0;
+          margin-right: $size-md;
+          img {
+            max-width: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-lg) {
+  .album-list {
+    > *:first-child {
+      flex: 0 100%;
+      width: 100%;
+    }
+    > *:nth-child(-n + 3):not(:first-child) {
+      flex: 0 50%;
+      width: 50%;
+    }
+    > *:nth-child(-n + 6):not(:nth-child(-n + 3)) {
+      flex: 0 33.3333%;
+      width: 33.3333%;
+    }
+    > *:nth-child(-n + 10):not(:nth-child(-n + 6)) {
+      flex: 0 25%;
+      width: 25%;
+    }
+    > *:nth-child(-n + 20):not(:nth-child(-n + 10)) {
+      flex: 0 20%;
+      width: 20%;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-lg) {
+  .album-list {
+    > * {
+      flex: 0 100%;
+      max-width: 100%;
+      max-height: 75px;
+
+      .album-container {
+        .album-info {
+          flex-direction: row;
+          justify-content: flex-start;
+
+          .album-image {
+            margin-right: $size-md;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    > *:first-child {
+      height: 30vh;
+      min-height: 250px;
+    }
+    > *:nth-child(-n + 3):not(:first-child) {
+      height: 25vh;
+      min-height: 200px;
+    }
+    > *:nth-child(-n + 6):not(:nth-child(-n + 3)) {
+      height: 20vh;
+      min-height: 175px;
+    }
+    > *:nth-child(-n + 10):not(:nth-child(-n + 6)) {
+      height: 18vh;
+      min-height: 150px;
+    }
+    > *:nth-child(-n + 50):not(:nth-child(-n + 10)) {
+      height: 15vh;
+      min-height: 125px;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+@import '../../styles/constants.scss';
+
+.album {
+  display: flex;
+
+  .album-container {
+    display: flex;
+    padding: $size-md;
+    height: calc(100% - 16px);
+    width: calc(100% - 16px);
+    overflow: visible;
+
+    > div {
+      display: flex;
+      justify-content: flex-end;
+      width: calc(100% - 16px);
+      padding: $size-lg;
+      background-color: $white;
+      border-radius: $size-sm;
+      transition: linear all $transition-mid;
+      overflow: hidden;
+
+      .album-position {
+        font-weight: bold;
+        font-size: $font-md;
+        min-width: $size-xl;
+      }
+
+      .album-info {
+        flex: 1;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        .album-image {
+          display: flex;
+          justify-content: center;
+          height: 100%;
+
+          img {
+            height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        p {
+          margin: 0;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          max-width: 100%;
+        }
+      }
+
+      .top-label {
+        align-self: flex-start;
+        padding: $size-md;
+        border-radius: $size-sm;
+        position: absolute;
+        color: $white;
+      }
+    }
+
+    > div:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+.album.top-album {
+  .album-container {
+    > div {
+      background-color: $primary-lighter;
+      .album-position {
+        font-size: $font-title;
+      }
+
+      .album-info {
+        p {
+          font-size: $font-subtitle;
+        }
+      }
+
+      .top-label {
+        font-size: $size-xl;
+        background-color: $primary;
+      }
+    }
+  }
+}
+.album.top-three-album {
+  .album-container {
+    > div {
+      background-color: $secondary-lighter;
+      .album-position {
+        font-size: $font-subtitle;
+      }
+
+      .album-info {
+        p {
+          font-size: $font-xl;
+        }
+      }
+
+      .top-label {
+        font-size: $size-lg;
+        background-color: $secondary;
+      }
+    }
+  }
+}
+.album.top-six-album {
+  .album-container {
+    > div {
+      background-color: $accent-lighter;
+      .album-position {
+        font-size: $font-xl;
+      }
+
+      .top-label {
+        background-color: $accent;
+      }
+    }
+  }
+}
+.album.top-ten-album {
+  .album-container {
+    > div {
+      .album-position {
+        font-size: $font-lg;
+      }
+
+      .top-label {
+        background-color: $accent;
+      }
+    }
+  }
+}
+.album.top-twenty-album {
+}
+.album.top-fifty-album {
+}
