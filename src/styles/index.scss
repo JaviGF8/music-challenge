@@ -23,4 +23,13 @@ main {
   width: 100%;
   min-height: 100vh;
   background-color: $background-gray;
+
+  #main-container {
+    width: calc(100% - 32px);
+    padding: 0 $size-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 }

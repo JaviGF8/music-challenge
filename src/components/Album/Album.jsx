@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+
+import AlbumInfo from './AlbumInfo/AlbumInfo';
 
 const getClassName = (position) => {
   let classname = '';
@@ -21,33 +24,30 @@ const getClassName = (position) => {
   return classname;
 };
 
-const Album = ({ album, chartPosition }) =>
+const Album = ({ album, fullInfo }) =>
   album && (
-    <div className={`album fadein ${getClassName(chartPosition)}`}>
+    <div className={`album fadein${fullInfo ? ' album-full' : ''} ${getClassName(album.position)}`}>
       <div className="album-container">
-        <div className="shadow">
-          <div className="album-position">{chartPosition}.</div>
-          <div className="album-info">
-            <div className="album-image">
-              <img src={album.image} alt={album.name} />
-            </div>
-            <p>
-              {album.artist} - {album.name}
-            </p>
+        {fullInfo ? (
+          <div className="shadow">
+            <AlbumInfo album={album} fullInfo={fullInfo} />
           </div>
-          {11 > chartPosition && <div className="top-label shadow">TOP {chartPosition}</div>}
-        </div>
+        ) : (
+          <NavLink className="shadow" to={album.id}>
+            <AlbumInfo album={album} fullInfo={fullInfo} />
+          </NavLink>
+        )}
       </div>
     </div>
   );
 
 Album.defaultProps = {
-  chartPosition: null,
+  fullInfo: false,
 };
 
 Album.propTypes = {
   album: PropTypes.object.isRequired,
-  chartPosition: PropTypes.number,
+  fullInfo: PropTypes.bool,
 };
 
 export default Album;

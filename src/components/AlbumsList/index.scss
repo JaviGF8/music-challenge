@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   max-width: $screen-xl;
+  width: 100vw;
 
   > * {
     flex: 0 20%;
@@ -92,7 +93,15 @@
           flex-direction: row;
           justify-content: flex-start;
 
+          p {
+            word-break: break-word;
+            text-overflow: inherit;
+            white-space: inherit;
+            flex: 1;
+          }
+
           .album-image {
+            flex: 1;
             margin-right: $size-md;
             margin-bottom: 0;
           }

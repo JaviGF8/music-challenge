@@ -15,17 +15,24 @@ export const setAlbums = (albums) => (dispatch) => {
   dispatch({ type: ALBUMS.SET_ALL, albums });
 };
 
-const formatAlbum = (album) =>
+const formatAlbum = (album, position) =>
   album ?
     {
-        fullInfo: { ...album },
         name: album['im:name']?.label,
         artist: album['im:artist']?.label,
+        artistLink: album['im:artist']?.attributes?.href,
         id: album.id?.attributes?.['im:id'],
         image: album['im:image']?.[album['im:image'].length - 1]?.label,
         releaseDate: album['im:releaseDate']?.label ?
           format(new Date(album['im:releaseDate'].label), 'dd/MM/YYY') :
           null,
+        position: position + 1,
+        link: album.id?.label || album.link?.attributes?.href,
+        genre: album.category?.attributes?.label,
+        genreLink: album.category?.attributes?.scheme,
+        price: album['im:price']?.label,
+        totalSongs: album['im:itemCount']?.label,
+        rights: album.rights?.label,
       } :
     null;
 
@@ -47,4 +54,23 @@ export const getAllAlbums = () => (dispatch) => {
         dispatch(LOADING_END);
       });
   });
+};
+
+export const getAlbumById = (albumId) => (dispatch, getState) => {
+  dispatch(LOADING);
+  const { albums } = getState().albums;
+
+  if (albums?.length) {
+    dispatch(setSelectedAlbum(albums.find((album) => album.id === albumId)));
+    dispatch(LOADING_END);
+  } else {
+    dispatch(getAllAlbums())
+      .then((foundAlbums) => {
+        dispatch(setSelectedAlbum(foundAlbums.find((album) => album.id === albumId)));
+        dispatch(LOADING_END);
+      })
+      .catch(() => {
+        dispatch(LOADING_END);
+      });
+  }
 };

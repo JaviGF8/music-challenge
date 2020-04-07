@@ -6,19 +6,22 @@
   .album-container {
     display: flex;
     padding: $size-md;
-    height: calc(100% - 16px);
+    height: calc(100% - 32px);
     width: calc(100% - 16px);
     overflow: visible;
 
-    > div {
+    > * {
       display: flex;
       justify-content: flex-end;
       width: calc(100% - 16px);
+      height: calc(100% - 16px);
       padding: $size-lg;
       background-color: $white;
       border-radius: $size-sm;
       transition: linear all $transition-mid;
       overflow: hidden;
+      text-decoration: none;
+      color: $black;
 
       .album-position {
         font-weight: bold;
@@ -46,12 +49,14 @@
           }
         }
 
+        a,
         p {
           margin: 0;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
           max-width: 100%;
+          text-decoration: none;
         }
       }
 
@@ -64,20 +69,23 @@
       }
     }
 
-    > div:hover {
+    > *:hover {
       transform: scale(1.02);
     }
   }
 }
+// TOP 1
 .album.top-album {
   .album-container {
-    > div {
+    > * {
       background-color: $primary-lighter;
+      border: 1px solid rgba($primary, 0.2);
       .album-position {
         font-size: $font-title;
       }
 
       .album-info {
+        a,
         p {
           font-size: $font-subtitle;
         }
@@ -90,15 +98,18 @@
     }
   }
 }
+// TOP 3
 .album.top-three-album {
   .album-container {
-    > div {
+    > * {
       background-color: $secondary-lighter;
+      border: 1px solid rgba($secondary, 0.2);
       .album-position {
         font-size: $font-subtitle;
       }
 
       .album-info {
+        a,
         p {
           font-size: $font-xl;
         }
@@ -111,10 +122,12 @@
     }
   }
 }
+// TOP 6
 .album.top-six-album {
   .album-container {
-    > div {
+    > * {
       background-color: $accent-lighter;
+      border: 1px solid rgba($accent, 0.2);
       .album-position {
         font-size: $font-xl;
       }
@@ -125,9 +138,11 @@
     }
   }
 }
+// TOP 10
 .album.top-ten-album {
   .album-container {
-    > div {
+    > * {
+      border: 1px solid rgba($accent, 0.4);
       .album-position {
         font-size: $font-lg;
       }
@@ -138,7 +153,89 @@
     }
   }
 }
-.album.top-twenty-album {
+// EXTENDED
+.album.album-full {
+  .album-container {
+    > * {
+      background-color: $white;
+      cursor: auto;
+
+      .album-info {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .album-image {
+          img {
+            height: 200px;
+            width: 200px;
+            margin-right: $size-lg;
+          }
+        }
+
+        .album-full-info {
+          display: flex;
+          flex-direction: column;
+          max-width: 100%;
+
+          > p,
+          > div {
+            max-width: 100%;
+            word-break: break-word;
+            text-overflow: inherit;
+            white-space: inherit;
+            margin: $size-md 0;
+          }
+
+          .album-name {
+            font-size: $font-title;
+            font-weight: bold;
+          }
+
+          a {
+            text-decoration: underline;
+            font-size: $font-subtitle;
+            color: $primary-dark;
+          }
+
+          .album-rights {
+            color: $gray;
+            margin: $size-md 0;
+            font-size: $font-sm;
+          }
+
+          .album-price {
+            span {
+              color: $white;
+              background-color: $secondary;
+              padding: $size-md;
+              border-radius: $size-sm;
+            }
+          }
+
+          .album-genre {
+            i {
+              margin-left: $size-md;
+              font-size: $font-md;
+            }
+          }
+        }
+      }
+    }
+    > *:hover {
+      transform: none;
+      cursor: auto;
+    }
+  }
 }
-.album.top-fifty-album {
+@media screen and (max-width: $screen-md) {
+  .album.album-full {
+    .album-container {
+      > * {
+        .album-info {
+          flex-direction: column;
+        }
+      }
+    }
+  }
 }

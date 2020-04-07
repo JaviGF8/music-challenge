@@ -8,7 +8,7 @@ const AlbumListPage = ({ albums, getAllAlbums, loading }) => {
   }, []);
   return (
     <div className="albums-container">
-      <h1>Album List</h1>
+      <h1>Top 100 Albums in iTunes USA</h1>
       {loading && <div>LOADING</div>}
       <AlbumList albums={albums} />
     </div>
