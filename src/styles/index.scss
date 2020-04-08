@@ -10,9 +10,9 @@ body {
 }
 
 .shadow {
-  -webkit-box-shadow: 0px 0 $size-lg $size-sm rgba($gray-light, 0.3);
-  -moz-box-shadow: 0px 0 $size-lg $size-sm rgba($gray-light, 0.3);
-  box-shadow: 0px 0 $size-lg $size-sm rgba($gray-light, 0.3);
+  -webkit-box-shadow: 0px 0 $size-md $size-xs rgba($gray, 0.2);
+  -moz-box-shadow: 0px 0 $size-md $size-xs rgba($gray, 0.2);
+  box-shadow: 0px 0 $size-md $size-xs rgba($gray, 0.2);
 }
 
 main {

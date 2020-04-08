@@ -1,9 +1,11 @@
 @import '../../styles/constants.scss';
 
 .search-bar {
+  display: flex;
+  align-items: center;
   background-color: $primary;
   color: $white;
-  padding: $size-sm $size-md;
+  padding: $size-sm $size-lg;
   border-radius: $size-sm;
 
   input {
@@ -18,6 +20,9 @@
     background: transparent;
     transition: all linear $transition-mid;
     color: $white;
+  }
+  input::placeholder {
+    color: rgba($white, 0.5);
   }
   input.hidden {
     padding: 0;

@@ -42,6 +42,7 @@ const SearchBar = ({ icon, onSearch }) => {
         className={value || visible ? '' : 'hidden'}
         ref={inputRef}
         onChange={(event) => setValue(event.target.value)}
+        placeholder="Search"
         value={value}
       />
     </div>
