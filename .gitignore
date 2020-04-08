@@ -35,3 +35,4 @@ src/temp/
 # tests #
 *.snap
 */__snapshots__/
+/build/

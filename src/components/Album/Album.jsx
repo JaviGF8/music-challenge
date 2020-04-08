@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 import AlbumInfo from './AlbumInfo/AlbumInfo';
+import { MAIN_URL } from '../../utils/urls';
 
 const getClassName = (position) => {
   let classname = 'top-hundred-album';
@@ -33,7 +34,7 @@ const Album = ({ album, fullInfo }) =>
             <AlbumInfo album={album} fullInfo={fullInfo} />
           </div>
         ) : (
-          <NavLink className="shadow" to={album.id}>
+          <NavLink className="shadow" to={`${MAIN_URL}/${album.id}`}>
             <AlbumInfo album={album} fullInfo={fullInfo} />
           </NavLink>
         )}

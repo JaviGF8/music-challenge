@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams, NavLink } from 'react-router-dom';
 import Album from '../../components/Album';
+import { MAIN_URL } from '../../utils/urls';
 
 const AlbumPage = ({ album, getAlbumById, loading, setSelectedAlbum }) => {
   const { albumId } = useParams();
@@ -14,7 +15,7 @@ const AlbumPage = ({ album, getAlbumById, loading, setSelectedAlbum }) => {
   }, []);
   return (
     <div className="album-page">
-      <NavLink to="/">
+      <NavLink to={MAIN_URL}>
         <i className="fas fa-arrow-left" />
       </NavLink>
       {loading || !album ? <div>LOADING...</div> : <Album album={album} fullInfo />}

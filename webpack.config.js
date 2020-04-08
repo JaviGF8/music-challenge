@@ -32,7 +32,7 @@ module.exports = {
   output: {
     path: path.resolve('build'),
     filename: 'index_bundle.js',
-    publicPath: '/',
+    publicPath: './',
   },
   optimization: {
     nodeEnv: ENVIRONMENT,

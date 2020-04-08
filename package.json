@@ -5,6 +5,9 @@
   "description": "This repository contains all of the work for music challenge",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "SET ENVIRONMENT=production&& webpack -p --progress",
     "start": "SET ENVIRONMENT=development&& webpack-dev-server -d --progress",
     "mac": "ENVIRONMENT=development webpack-dev-server -d --progress",
     "test": "SET ENVIRONMENT=test&& jest --maxWorkers=100%"
@@ -39,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/JaviGF8/music-challenge/issues"
   },
-  "homepage": "https://github.com/JaviGF8/music-challenge#readme",
+  "homepage": "https://javigf8.github.io/music-challenge/",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -84,6 +87,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
     "extract-text-webpack-plugin": "^3.0.2",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^4.0.4",
     "husky": "^4.2.3",
     "identity-obj-proxy": "^3.0.0",
