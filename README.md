@@ -2,6 +2,8 @@
 
 Music challenge is a project created by Javier Garcia using react. It will show the top 100 albums in the US based on the iTunes / Apple music API.
 
+Deployed in [GitHub Pages](https://javigf8.github.io/music-challenge/) and in [AWS](http://javi-music-challenge.s3-website.eu-west-3.amazonaws.com/music-challenge/)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development.
