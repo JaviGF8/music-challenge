@@ -9,6 +9,7 @@
     "deploy": "gh-pages -d build",
     "build": "SET ENVIRONMENT=production&& webpack -p --progress",
     "start": "SET ENVIRONMENT=development&& webpack-dev-server -d --progress",
+    "deploy-aws": "aws s3 sync build/ s3://javi-music-challenge",
     "mac": "ENVIRONMENT=development webpack-dev-server -d --progress",
     "test": "SET ENVIRONMENT=test&& jest --maxWorkers=100%"
   },
