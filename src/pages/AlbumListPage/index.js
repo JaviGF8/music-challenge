@@ -1,4 +1,4 @@
 import AlbumListPage from './AlbumListPage';
-import './index.scss';
+import './albumListPage.scss';
 
 export default AlbumListPage;

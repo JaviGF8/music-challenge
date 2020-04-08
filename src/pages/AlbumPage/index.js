@@ -1,4 +1,4 @@
 import AlbumPage from './AlbumPage';
-import './index.scss';
+import './albumPage.scss';
 
 export default AlbumPage;

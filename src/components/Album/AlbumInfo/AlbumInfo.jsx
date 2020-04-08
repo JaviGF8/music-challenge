@@ -16,8 +16,8 @@ const AlbumInfo = ({ album, fullInfo }) =>
             <ExternalLink href={album.artistLink} disabled={!fullInfo} text={album.artist} />
             <p className="album-rights">{album.rights}</p>
             <div className="album-genre">
-              Genre: {album.genre}
-              <ExternalLink icon="fas fa-external-link-alt" href={album.genreLink} disabled={!fullInfo} />
+              Genre:
+              <ExternalLink href={album.genreLink} disabled={!fullInfo} text={album.genre} />
             </div>
             <div className="album-price">
               Price: <span>{album.price}</span>

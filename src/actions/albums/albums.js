@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import { get } from '../ApiWrapper';
 import ALBUMS from '../../utils/dispatchs';
 
-const ITUNES_URL = 'https://itunes.apple.com/us/rss/topalbums/limit=100/json';
+const ITUNES_TOP_100 = 'https://itunes.apple.com/us/rss/topalbums/limit=100/json';
 
 const LOADING = { type: ALBUMS.LOADING };
 const LOADING_END = { type: ALBUMS.LOADING_END };
@@ -42,7 +42,7 @@ export const getAllAlbums = () => (dispatch) => {
   dispatch(LOADING);
 
   return new Promise((resolve, reject) => {
-    get(ITUNES_URL)
+    get(ITUNES_TOP_100)
       .then((response) => {
         const albums = formatAlbums(response.data.feed.entry);
         dispatch(setAlbums(albums));

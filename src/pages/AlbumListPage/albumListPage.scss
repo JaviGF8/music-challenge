@@ -5,4 +5,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  > .search-bar {
+    position: fixed;
+    top: 0;
+    left: $size-md;
+    border-radius: 0 0 $size-sm $size-sm;
+  }
 }

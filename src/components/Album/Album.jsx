@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import AlbumInfo from './AlbumInfo/AlbumInfo';
 
 const getClassName = (position) => {
-  let classname = '';
+  let classname = 'top-hundred-album';
 
   if (1 === position) {
     classname = 'top-album';

@@ -1,4 +1,4 @@
 import ExternalLink from './ExternalLink';
-import './index.scss';
+import './externalLink.scss';
 
 export default ExternalLink;

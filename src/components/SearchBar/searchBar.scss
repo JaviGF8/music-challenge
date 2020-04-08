@@ -1,0 +1,27 @@
+@import '../../styles/constants.scss';
+
+.search-bar {
+  background-color: $primary;
+  color: $white;
+  padding: $size-sm $size-md;
+  border-radius: $size-sm;
+
+  input {
+    font-size: $font-lg;
+    padding: 0 $size-sm;
+    height: $size-xl;
+    max-width: 200px;
+    opacity: 1;
+    outline-width: 0;
+    border: 0;
+    border-bottom: 1px solid $white;
+    background: transparent;
+    transition: all linear $transition-mid;
+    color: $white;
+  }
+  input.hidden {
+    padding: 0;
+    max-width: 0;
+    opacity: 0;
+  }
+}

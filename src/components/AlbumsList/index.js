@@ -1,4 +1,4 @@
 import AlbumList from './AlbumList';
-import './index.scss';
+import './albumsList.scss';
 
 export default AlbumList;

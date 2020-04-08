@@ -1,4 +1,4 @@
 import Album from './Album';
-import './index.scss';
+import './album.scss';
 
 export default Album;
