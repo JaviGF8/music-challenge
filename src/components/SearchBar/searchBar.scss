@@ -5,8 +5,13 @@
   align-items: center;
   background-color: $primary;
   color: $white;
-  padding: $size-sm $size-lg;
   border-radius: $size-sm;
+
+  .custom-btn {
+    height: $size-xl;
+    width: $size-xl;
+    padding: 0;
+  }
 
   input {
     font-size: $font-lg;
@@ -16,13 +21,13 @@
     opacity: 1;
     outline-width: 0;
     border: 0;
-    border-bottom: 1px solid $white;
     background: transparent;
     transition: all linear $transition-mid;
     color: $white;
   }
   input::placeholder {
     color: rgba($white, 0.5);
+    pointer-events: none;
   }
   input.hidden {
     padding: 0;

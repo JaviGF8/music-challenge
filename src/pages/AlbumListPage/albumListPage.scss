@@ -12,4 +12,44 @@
     left: $size-md;
     border-radius: 0 0 $size-sm $size-sm;
   }
+
+  > .selector {
+    position: fixed;
+    align-items: flex-start;
+    flex-direction: row;
+    top: $size-md;
+    right: 0;
+    z-index: 3;
+
+    > .custom-btn {
+      margin-right: 0;
+      border-radius: $size-sm 0 0 $size-sm;
+    }
+
+    .selector-options {
+      padding: $size-sm;
+      margin: 0;
+      flex-direction: column;
+      background-color: $primary;
+      border-radius: 0 0 0 $size-sm;
+
+      > .custom-btn {
+        margin-right: 0;
+        margin-bottom: $size-sm;
+        background-color: $secondary;
+        max-width: 200px;
+      }
+      > .custom-btn:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .selector-options.hidden {
+      padding: $size-sm 0;
+
+      > .custom-btn {
+        max-width: 0;
+      }
+    }
+  }
 }

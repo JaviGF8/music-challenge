@@ -1,0 +1,50 @@
+@import '../../styles/constants.scss';
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > .custom-btn {
+    height: $size-xl;
+    width: $size-xl;
+    padding: 0;
+  }
+
+  .selector-options {
+    display: flex;
+    opacity: 1;
+    margin-top: $size-lg;
+    padding: $size-sm;
+    max-width: 100vh;
+    transition: linear all $transition-mid;
+
+    > .custom-btn {
+      opacity: 0.5;
+      height: $size-xl;
+      transition: linear all $transition-mid;
+      font-size: $font-sm;
+      margin-right: $size-sm;
+    }
+    > .custom-btn.selected {
+      opacity: 1;
+    }
+    > .custom-btn:last-child {
+      margin-right: 0;
+    }
+  }
+  .selector-options.hidden {
+    opacity: 0;
+    margin-top: 0;
+    padding: 0 $size-sm;
+    max-width: 0;
+
+    > .custom-btn {
+      padding: 0;
+      opacity: 0;
+      height: 0;
+      pointer-events: none;
+    }
+  }
+}

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Icon = ({ icon, ...rest }) => <i {...rest} aria-hidden="true" className={icon} />;
 
 Icon.defaultProps = {
-  icon: null,
+  icon: undefined,
 };
 
 Icon.propTypes = {

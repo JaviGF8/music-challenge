@@ -1,7 +1,7 @@
-import ALBUMS from '../../utils/dispatchs';
+import { ALBUMS } from '../../utils/dispatchs';
 
 const initialState = {
-  album: null,
+  album: undefined,
   albums: [],
   loading: false,
 };

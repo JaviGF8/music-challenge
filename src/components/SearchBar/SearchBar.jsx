@@ -1,15 +1,18 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../Icon';
+import Button from '../Button';
 
-const SearchBar = ({ icon, onSearch }) => {
-  const [ value, setValue ] = useState(null);
+const SearchBar = ({ clearIcon, icon, onSearch }) => {
+  const [ value, setValue ] = useState('');
   const [ visible, setVisible ] = useState(false);
 
   const outsideRef = useRef();
   const inputRef = useRef();
+
+  const clear = () => {
+    setValue('');
+    setVisible(false);
+  };
 
   const handleClick = (event) => {
     if (visible && outsideRef.current && !outsideRef.current.contains(event.target)) {
@@ -36,8 +39,8 @@ const SearchBar = ({ icon, onSearch }) => {
   });
 
   return (
-    <div className="search-bar shadow" ref={outsideRef} onClick={() => setVisible(true)}>
-      {icon && <Icon icon={icon} />}
+    <div className="search-bar shadow" ref={outsideRef}>
+      <Button icon={icon} onClick={() => setVisible(true)} />
       <input
         className={value || visible ? '' : 'hidden'}
         ref={inputRef}
@@ -45,15 +48,18 @@ const SearchBar = ({ icon, onSearch }) => {
         placeholder="Search"
         value={value}
       />
+      {(visible || value) && <Button className="fadein" icon={clearIcon} onClick={clear} />}
     </div>
   );
 };
 
 SearchBar.defaultProps = {
+  clearIcon: 'fas fa-times',
   icon: 'fas fa-search',
 };
 
 SearchBar.propTypes = {
+  clearIcon: PropTypes.string,
   icon: PropTypes.string,
   onSearch: PropTypes.func.isRequired,
 };

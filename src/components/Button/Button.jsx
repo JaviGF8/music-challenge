@@ -1,25 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Icon from '../Icon';
 
-const ExternalLink = ({ className, icon, text, ...rest }) => (
-  <a {...rest} className={`external-link${className ? ` ${className}` : ''}`} target="_blank" rel="noopener noreferrer">
+const Button = ({ className, icon, text, ...rest }) => (
+  <button className={`custom-btn${className ? ` ${className}` : ''}`} type="button" {...rest}>
     {icon && <Icon icon={icon} />}
     {text}
-  </a>
+  </button>
 );
 
-ExternalLink.defaultProps = {
+Button.defaultProps = {
   className: undefined,
   icon: undefined,
   text: undefined,
 };
 
-ExternalLink.propTypes = {
+Button.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
   text: PropTypes.string,
 };
 
-export default ExternalLink;
+export default Button;

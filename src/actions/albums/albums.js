@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
 import { get } from '../ApiWrapper';
-import ALBUMS from '../../utils/dispatchs';
+import { ALBUMS } from '../../utils/dispatchs';
+import setAlbumGenres from '../genres/genres';
 
 const ITUNES_TOP_100 = 'https://itunes.apple.com/us/rss/topalbums/limit=100/json';
 
@@ -45,6 +46,7 @@ export const getAllAlbums = () => (dispatch) => {
     get(ITUNES_TOP_100)
       .then((response) => {
         const albums = formatAlbums(response.data.feed.entry);
+        dispatch(setAlbumGenres(albums));
         dispatch(setAlbums(albums));
         resolve(albums);
         dispatch(LOADING_END);
