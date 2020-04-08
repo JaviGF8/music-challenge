@@ -56,6 +56,7 @@ const Selector = ({ onChange, options }) => {
         />
         {options.map((opt) => (
           <Button
+            key={opt}
             className={-1 === selected.indexOf(opt) ? undefined : 'selected'}
             onClick={() => onSelect(opt)}
             text={opt}

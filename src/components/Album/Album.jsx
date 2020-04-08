@@ -34,7 +34,7 @@ const Album = ({ album, fullInfo }) =>
             <AlbumInfo album={album} fullInfo={fullInfo} />
           </div>
         ) : (
-          <NavLink className="shadow" to={`${MAIN_URL}/${album.id}`}>
+          <NavLink className="shadow" to={`${MAIN_URL}${album.id}`}>
             <AlbumInfo album={album} fullInfo={fullInfo} />
           </NavLink>
         )}

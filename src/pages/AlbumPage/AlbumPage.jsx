@@ -18,7 +18,7 @@ const AlbumPage = ({ album, getAlbumById, loading, setSelectedAlbum }) => {
       <NavLink to={MAIN_URL}>
         <i className="fas fa-arrow-left" />
       </NavLink>
-      {loading || !album ? <div>LOADING...</div> : <Album album={album} fullInfo />}
+      {loading || !album?.id ? <div>LOADING...</div> : <Album album={album} fullInfo />}
     </div>
   );
 };

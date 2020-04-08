@@ -11,6 +11,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 const { ENVIRONMENT } = process.env;
+const isProduction = 'production' === ENVIRONMENT;
 
 function getPlugins() {
   const plugins = [
@@ -18,8 +19,13 @@ function getPlugins() {
     new MiniCssExtractPlugin('styles.css'),
     new webpack.ProvidePlugin({ jQuery: 'jquery' }),
     new webpack.DefinePlugin({
-      'process.env.ENVIRONMENT': JSON.stringify(ENVIRONMENT),
-      'process.env.NODE_ENV': JSON.stringify(ENVIRONMENT),
+      process: {
+        env: {
+          ENVIRONMENT: JSON.stringify(ENVIRONMENT),
+          NODE_ENV: JSON.stringify(ENVIRONMENT),
+          PUBLIC_URL: JSON.stringify(isProduction ? '/music-challenge/' : '/'),
+        },
+      },
     }),
   ];
 
@@ -32,7 +38,7 @@ module.exports = {
   output: {
     path: path.resolve('build'),
     filename: 'index_bundle.js',
-    publicPath: './',
+    publicPath: isProduction ? './' : '/',
   },
   optimization: {
     nodeEnv: ENVIRONMENT,
